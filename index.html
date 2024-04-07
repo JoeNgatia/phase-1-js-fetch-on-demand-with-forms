@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href='style.css' />
-  <script src="src/index.js"></script>
+  <script src="src/index.js">
+    fetch(`http://localhost:3000/movies/${userInput}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error fetching data:', error));
+
+  </script>
   <title>KidsMDb</title>
 </head>
 <body>
@@ -30,11 +36,28 @@
       <label for="searchByID">Search By ID</label>
       <input id="searchByID" type="text" placeholder="Enter ID here"/>
       <input type="submit" />
+      fetch(`http://localhost:3000/movies/${userInput}`)
+  .then(response => response.json())
+  .then(data => console.log(data)fetch(`http://localhost:3000/movies/${userInput}`)
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("movieTitle").innerText = data.title;
+    document.getElementById("movieSummary").innerText = data.summary;
+  })
+  .catch(error => console.error('Error fetching data:', error));
+)
+  .catch(error => console.error('Error fetching data:', error));
+
     </form>
   </section>
   <section id="movieDetails">
     <h4>Title</h4>
     <p>Summary</p>
+    <section id="movieDetails">
+      <h4 id="movieTitle">Title</h4>
+      <p id="movieSummary">Summary</p>
+    </section>
+    
   </section>
 </body>
 </html>
